@@ -1,2 +1,2 @@
 # Bitcoin-price-ticker
-Bitcoin price ticker written in python using the the Bitstamp price API.
+Bitcoin price ticker written in Python using the the Bitstamp price API. This is the program I used for my AP Computer Science create task, and uploaded to the College Board.
