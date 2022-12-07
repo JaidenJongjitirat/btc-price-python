@@ -13,7 +13,7 @@ class start(object):
             api_request = requests.get(URL)
             price = float(json.loads(api_request.text)['last'])
             #logical and mathmatical concept 1
-            if price < 5075.50:
+            if price < 5000.00:
                 print("\33[94mNow is a good time to invest in Bitcoin\033[0m")
             return price
 
@@ -33,37 +33,19 @@ class start(object):
 
         except requests.ConnectionError:
             print("\033[91mPlease check internet connection!!\033[0m")
-            sys.exit()   
-    #Chuck E. Cheese token to Bitcoin (usd) comparison
-    def CECtBitcoinPrice(self): 
-        URLCECt = 'https://www.bitstamp.net/api/ticker/'
-        try:
-            api_requestCECt = requests.get(URLCECt)
-            priceCECt = float(json.loads(api_requestCECt.text)['last'])\
-            #logical and mathmatical concept 3
-            if (priceCECt / 0.33 < 9090):
-                print("\33[94mNow is a good time to invest in Bitcoin\033[0m")
-            return math.ceil(priceCECt / 0.33)
-
-        except requests.ConnectionError:
-            print("\033[91mPlease check internet connection!!\033[0m")
-            sys.exit()     
+            sys.exit()    
 
     print ("""
     Currencies to compare Bitcoin price to:
     *U.S. Dollar (USD)
-    *Chuck E. Cheese token (CECt)
     *Euros (Euro)
     *More info
     """)
     #Run main part of program
     def __init__(self):
-        #Checks if user typed in USD, Euro, or Chuck E. Cheese Token
+        #Checks if user typed in USD, Euro
         #Abstration with lists
         usd_keywords = ["USD", "usd", "Usd", "us dollar", "US dollar", "U.S. dollar", "U.S. Dollar", "US DOLLAR", "U.S. DOLLAR"]
-
-        cect_keywords = ["CECt", "CECT", "cect", "cecT", "Chuck E. Cheese tokens", "Chuck E Cheese tokens", "Chuck E. Cheese tokens", "chuck e. cheese tokens", "chuck e cheese tokens", "CHUCK E. CHEESE TOKENS", "CHUCK E CHEESE TOKENS"]
-
         euro_keywords = ["Euro", "euro", "EURO", "Euros", "euros", "EUROS"]
 
 
@@ -77,13 +59,8 @@ class start(object):
             while True:
                 time.sleep(5)
                 print("\033[1;32mThe current price of 1 \033[0m" "\33[93mBitcoin \033[0m" "\033[1;32mis: \033[0m" "€" + str(self.EuroBitcoinPrice()) + "\033[1;32m Euros\033[0m")
-
-        elif self.currencyCompare in cect_keywords:
-            while True:
-                time.sleep(5)	
-                print("\033[1;32mThe current price of 1 \033[0m" "\33[93mBitcoin \033[0m" "\033[1;32mis: \033[0m" + str(self.CECtBitcoinPrice()) + "\033[1;32m" + " Chuck E. Cheese tokens" + "\033[0m")
-
+                
         else:
-          print("Not an option, please choose an option from above menu. Options are: USD, Euro, and CECt.")
+          print("Not an option, please choose an option from above menu. Options are: USD and Euro")
           start()
 a = start()
